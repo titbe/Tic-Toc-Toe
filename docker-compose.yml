@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  # vite:
+  #   image: vite
+  #   build:
+  #     context: node_modules/vite
+  #     dockerfile: ./dockerfile
+  #   environment:
+  #     NODE_ENV: production
+  #   ports:
+  #     - 5173:5173
+  web:
+    build: .
+    ports:
+      - 5173:5173
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
